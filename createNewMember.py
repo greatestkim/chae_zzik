@@ -10,9 +10,7 @@ if 'id' in form:
 else:
     pageId = 'Welcome'
     description = 'Hello, web'
-from datetime import date
 
-today = date.today()
 print('''<!DOCTYPE html>
 <html>
 
@@ -38,14 +36,13 @@ print('''<!DOCTYPE html>
     </div>
 
     <div class="common item">
-        <form action="process_update.py" method="post" class="formargin">
-          <input type="hidden" name="pageId" value="{form_default_title}">
-          <p><input type="text" name="title" placeholder="title" value="{form_default_title}"></p>
-          <p><textarea rows="10" cols="100"  name="description" placeholder="description">{form_default_description}</textarea></p>
+        <form action="process_createNewMember.py" method="post" class="formargin">
+          <p><input type="text" name="title" placeholder="MY NAME HERE!"></p>
+          <p><textarea rows="10" cols="100"  name="description" placeholder="LIST"></textarea></p>
           <p><input type="submit" value="SUBMIT"></p>
         </form>
     </div>
     </div>
   </body>
 </html>
-'''.format(title=pageId, desc=description, listStr=view.getMember(),today=today,form_default_title=pageId, form_default_description=description))
+'''.format(title=pageId, desc=description, listStr=view.getMember(),today=view.today))
